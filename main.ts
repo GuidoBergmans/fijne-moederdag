@@ -1,21 +1,25 @@
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     myBall2 = carnival.createProjectileBallFromSprite(img`
-        . . . . . . . . c . . . . . . . 
-        . . . . . . . c c c . . . . . . 
-        . . . . . . c . e . c . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . . e . . . . . . . 
-        . . . . . . . 1 1 1 . . . . . . 
-        . . . . . . 1 . 1 . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . c . . 
+        . c c c . 
+        c . e . c 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . . e . . 
+        . d d d . 
+        d . d . d 
+        . . . 1 . 
+        1 . . . . 
+        1 . 1 . 1 
+        . . 1 . 1 
+        1 . . . . 
         `, myBall)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Booth, function (sprite, otherSprite) {
@@ -59,24 +63,25 @@ let myBall2: Ball = null
 let myBall: Ball = null
 scene.setBackgroundImage(assets.image`wildWest`)
 myBall = carnival.create(img`
-    . . . . . . . . b . . . . . . . 
-    . . . . . . . b b b . . . . . . 
-    . . . . . . b . e . b . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . . e . . . . . . . 
-    . . . . . . . 1 1 1 . . . . . . 
-    . . . . . . 1 . 1 . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . c . . 
+    . c c c . 
+    c . e . c 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . . e . . 
+    . d d d . 
+    d . d . d 
+    . . . . . 
     `, SpriteKind.Player)
 myBall.setPosition(80, 90)
+game.showLongText("beweeg het richt ding met de pijltjes en met a schiet je veel succes", DialogLayout.Bottom)
 myBall.controlBallWithArrowKeys()
 myBall.setTraceMulti(carnival.Tracers.Cross)
 let mybooth = sprites.create(assets.image`booth`, SpriteKind.Booth)
