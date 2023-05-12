@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const without_heart = SpriteKind.create()
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     myBall2 = carnival.createProjectileBallFromSprite(img`
         . . c . . 
@@ -13,8 +16,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . e . . 
         . . e . . 
         . . e . . 
-        . d d d . 
-        d . d . d 
+        . f f f . 
+        f . f . f 
         . . . 1 . 
         1 . . . . 
         1 . 1 . 1 
@@ -55,6 +58,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
         ..ccc......ccc..
         ................
         `)
+    otherSprite.setKind(SpriteKind.without_heart)
     info.changeScoreBy(1)
     music.baDing.play()
 })
@@ -76,8 +80,8 @@ myBall = carnival.create(img`
     . . e . . 
     . . e . . 
     . . e . . 
-    . d d d . 
-    d . d . d 
+    . f f f . 
+    f . f . f 
     . . . . . 
     `, SpriteKind.Player)
 myBall.setPosition(80, 90)
@@ -96,4 +100,10 @@ forever(function () {
     projectile.bottom = 56
     projectile.setKind(SpriteKind.Enemy)
     pause(randint(500, 2000))
+})
+game.onUpdateInterval(100, function () {
+    let how_many_arrows = 0
+    if (how_many_arrows > 0) {
+        myBall2.sy += -0.05
+    }
 })
