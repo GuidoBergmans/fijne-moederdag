@@ -1,6 +1,9 @@
 namespace SpriteKind {
     export const without_heart = SpriteKind.create()
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.gameOver(true)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     myBall2 = carnival.createProjectileBallFromSprite(img`
         . . c . . 
@@ -65,6 +68,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
 let projectile: Sprite = null
 let myBall2: Ball = null
 let myBall: Ball = null
+game.setGameOverEffect(true, effects.hearts)
 scene.setBackgroundImage(assets.image`wildWest`)
 myBall = carnival.create(img`
     . . c . . 
@@ -85,7 +89,7 @@ myBall = carnival.create(img`
     . . . . . 
     `, SpriteKind.Player)
 myBall.setPosition(80, 90)
-game.showLongText("beweeg het richt ding met de pijltjes en met a schiet je veel succes", DialogLayout.Bottom)
+game.showLongText("beweeg het richt ding met de pijltjes en met a schiet je met b stop je de game veel succes en een fijne moeder dag!", DialogLayout.Bottom)
 myBall.controlBallWithArrowKeys()
 myBall.setTraceMulti(carnival.Tracers.Cross)
 let mybooth = sprites.create(assets.image`booth`, SpriteKind.Booth)
@@ -100,10 +104,4 @@ forever(function () {
     projectile.bottom = 56
     projectile.setKind(SpriteKind.Enemy)
     pause(randint(500, 2000))
-})
-game.onUpdateInterval(100, function () {
-    let how_many_arrows = 0
-    if (how_many_arrows > 0) {
-        myBall2.sy += -0.05
-    }
 })
